@@ -1,0 +1,468 @@
+/* ================================================
+   PAGES.CSS
+   Estilos específicos das páginas de conteúdo:
+   index (home), sobre e contato.
+   ================================================ */
+
+/* ────────────────────────────────────────
+   INDEX — Hero (banner principal)
+   ──────────────────────────────────────── */
+
+.hero {
+    position: relative;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 24px;
+    overflow: hidden;
+    /* Foto de fundo + overlay escuro (feito no ::before) */
+    background-image: url('https://images.unsplash.com/photo-1659440107309-1e55389e0ba6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Camada escura sobre a foto */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(30,31,39, 0.88) 0%,
+        rgba(49,53,80,  0.78) 55%,
+        rgba(0,171,250, 0.20) 100%
+    );
+}
+
+/* Texto e botões ficam acima da camada escura */
+.hero-conteudo {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+}
+
+.hero-conteudo h1 {
+    font-size: 38px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 14px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.50);
+}
+
+/* Palavra de destaque no título */
+.hero-conteudo h1 span { color: var(--azul-claro); }
+
+.hero-conteudo p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.82);
+    margin-bottom: 34px;
+    max-width: 520px;
+    margin-inline: auto;
+}
+
+/* Par de botões do hero */
+.hero-botoes {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+/*   INDEX — Barra de estatísticas */
+.stats-bar {
+    background: var(--fundo-card);
+    border-bottom: 2px solid var(--borda);
+    padding: 22px 40px;
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+}
+
+.stat-item { text-align: center; }
+
+.stat-item strong {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--azul-claro);
+}
+
+.stat-item span {
+    font-size: 12px;
+    color: var(--texto-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/*  SEÇÕES GENÉRICAS*/
+.secao {
+    padding: 64px 40px;
+}
+.secao-escura { background: var(--fundo-page); }
+.secao-clara  { background: var(--fundo-card); }
+
+.secao-titulo {
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--azul-suave);
+    margin-bottom: 6px;
+}
+.secao-subtitulo {
+    font-size: 14px;
+    color: var(--texto-muted);
+    margin-bottom: 36px;
+}
+
+/*   INDEX — Cards de campanha */
+.grade-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.card-campanha {
+    background: var(--fundo-card);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-lg);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.card-campanha:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sombra-hover);
+    border-color: var(--azul-claro);
+}
+.card-campanha img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+.card-corpo { padding: 16px; }
+
+.card-corpo h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--azul-suave);
+    margin-bottom: 6px;
+}
+.card-corpo p {
+    font-size: 13px;
+    color: var(--texto-muted);
+    margin-bottom: 14px;
+    line-height: 1.55;
+}
+
+/* Barra de progresso */
+.progresso {
+    background: rgba(255,255,255,0.08);
+    border-radius: 99px;
+    height: 5px;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+.progresso-barra {
+    height: 100%;
+    background: linear-gradient(90deg, var(--azul-escuro), var(--azul-claro));
+    border-radius: 99px;
+}
+.progresso-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--texto-fraco);
+    margin-bottom: 14px;
+}
+
+/* INDEX — Banner CTA (Criar projeto) */
+.banner-cta {
+    background: linear-gradient(135deg, var(--fundo-card), rgba(67,112,209,0.25));
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-lg);
+    padding: 48px 32px;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.banner-cta h2 {
+    font-size: 24px;
+    color: var(--texto);
+    margin-bottom: 10px;
+}
+.banner-cta p {
+    color: var(--texto-muted);
+    font-size: 15px;
+    margin-bottom: 24px;
+}
+
+
+
+/* SOBRE */
+.sobre-hero {
+    position: relative;
+    padding: 90px 64px 70px;
+    text-align: left;
+    background: linear-gradient(135deg, var(--fundo-card) 0%, rgba(67,112,209,0.45) 100%);
+    overflow: hidden;
+
+    background-image: url('https://images.unsplash.com/photo-1484387436194-cf7cb70800ce?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+.sobre-hero::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(30,31,39, 0.88) 0%,
+        rgba(49,53,80,  0.78) 55%,
+        rgba(0,171,250, 0.20) 100%
+    );
+}
+.sobre-hero::after {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: rgba(0,171,250,0.06);
+    bottom: -200px; right: -100px;
+    filter: blur(60px);
+}
+.sobre-hero h1 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+.sobre-hero p {
+    margin-top: 12px;
+    color: rgba(255,255,255,0.70);
+    font-size: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+.sobre-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.sobre-item {
+    background: var(--fundo-card);
+    border: 1px solid var(--borda);
+    border-left: 4px solid var(--azul-claro);
+    border-radius: var(--raio-lg);
+    padding: 26px;
+}
+.sobre-item h3 {
+    font-size: 17px;
+    color: var(--azul-claro);
+    margin-bottom: 10px;
+}
+.sobre-item p {
+    font-size: 14px;
+    color: var(--texto-muted);
+    line-height: 1.7;
+}
+
+/* CONTATO */
+.contato-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    background: var(--fundo-card);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-lg);
+    padding: 52px 44px;
+    display: flex;
+    align-items: center;
+    gap: 52px;
+    flex-wrap: wrap;
+}
+.contato-info { flex: 1; min-width: 240px; }
+.contato-linha {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+.contato-icon { font-size: 28px; flex-shrink: 0; }
+.contato-linha p { font-size: 16px; }
+.contato-img {
+    width: 300px; ;
+
+
+
+}
+
+/*   SOBRE — Z-Pattern (Quem Somos) */
+.z-secao {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.z-bloco {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+/* Inverte a ordem para imagem na direita e texto na esquerda */
+.z-bloco.invertido {
+    flex-direction: row-reverse;
+}
+
+.z-imagem {
+    flex: 1;
+    min-height: 300px;
+    border-radius: var(--raio-lg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.z-imagem:hover {
+    transform: scale(1.02);
+    box-shadow: var(--sombra-hover);
+}
+
+.z-imagem-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        160deg,
+        rgba(30,31,39,0.15) 0%,
+        rgba(0,171,250,0.30) 100%
+    );
+    display: flex;
+    align-items: flex-end;
+    padding: 24px;
+}
+
+.z-imagem-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.90);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(6px);
+    padding: 6px 14px;
+    border-radius: 99px;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.z-texto {
+    flex: 1;
+}
+
+.z-tag {
+    display: inline-block;
+    background: rgba(0, 171, 250, 0.12);
+    color: var(--azul-claro);
+    padding: 6px 14px;
+    border-radius: 99px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+}
+
+.z-texto h3 {
+    font-size: 26px;
+    color: var(--azul-suave);
+    margin-bottom: 16px;
+    line-height: 1.3;
+}
+
+.z-texto p {
+    font-size: 15px;
+    color: var(--texto-muted);
+    line-height: 1.7;
+}
+
+/* SOBRE — Equipe Grid */
+.equipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.membro-card {
+    background: var(--fundo-card);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-lg);
+    padding: 32px 20px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.membro-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--azul-claro);
+}
+
+.membro-avatar {
+    font-size: 40px;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    background: var(--fundo-page);
+    border: 2px solid var(--azul-escuro);
+    border-radius: 50%;
+    margin: 0 auto 16px;
+}
+
+.membro-nome {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--texto);
+    margin-bottom: 4px;
+}
+
+.membro-cargo {
+    font-size: 13px;
+    color: var(--texto-muted);
+}
+
+/* Responsivo para Z-pattern e Equipe */
+@media (max-width: 768px) {
+    .z-secao { gap: 56px; }
+    .z-bloco, .z-bloco.invertido { flex-direction: column; gap: 32px; }
+    .z-imagem { min-height: 220px; flex: none; width: 100%; }
+    .z-texto { text-align: center; }
+    .equipe-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+    .equipe-grid { grid-template-columns: 1fr; }
+}
+
+/* ────────────────────────────────────────
+   RESPONSIVO
+   ──────────────────────────────────────── */
+@media (max-width: 768px) {
+    .secao          { padding: 48px 20px; }
+    .hero-conteudo h1 { font-size: 26px; }
+    .stats-bar      { gap: 24px; padding: 20px; }
+    .sobre-grid     { grid-template-columns: 1fr; }
+    .contato-wrapper { flex-direction: column; padding: 32px 24px; }
+    .contato-img    { width: 100%; height: 200px; }
+}

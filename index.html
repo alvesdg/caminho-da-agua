@@ -1,95 +1,192 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>💧 Caminho da Água</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caminho da Água</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/pages.css">
 </head>
 <body>
 
-<!-- MENU -->
+<!-- menu de navegação global -->
 <header>
-    <div class="logo">💧Caminho da Água</div>
+    <a class="logo" href="index.html">
+        <img class="logo-img" src="img/noNameLogo.png" alt="Logo Caminho da Água">
+        <span class="logo-texto">CAMINHO DA ÁGUA</span>
+    </a>
+
+    <!-- Botão hambúrguer (só aparece em mobile via CSS) -->
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+    </button>
+
     <nav>
-        <a href="#">Home</a>
-        <a href="#">Sobre</a>
-        <a href="login.html">Login</a>
-        <a href="#">Cadastro</a>
-        <button class="btn">Criar Doação</button>
+
+        <a href="pages/sobre.html">Sobre</a>
+        <a href="pages/login.html">Login</a>
+        <a href="pages/contato.html">Contato</a>
+
+
+        <button class="btn-nav"
+                onclick="window.location.href='pages/criar-projeto.html'">
+             Solicitar apoio
+        </button>
     </nav>
 </header>
 
-<!-- MAIN -->
-<section class="main">
-    <h1>Ajude a levar água potável e saneamento básico</h1>
-    <h2>para quem precisa</h2>
-    <p>Milhões de pessoas ainda não têm acesso à água limpa e saneamento.</p>
-    <button class="btn">Doar agora</button>
 
-    <div class="stats">
-        <div>33M<br><span>Vivem sem água potável</span></div>
-        <div>90M<br><span>Sem saneamento básico</span></div>
-        <div>50%<br><span>da população não possui tratamento de esgoto</span></div>
-    </div>
-</section>
+<section class="hero">
+    <div class="hero-conteudo">
+        <h1>
+            Leve <span>água limpa</span> e saneamento
+            para quem mais precisa
+        </h1>
+        <p>
+            Conectamos doadores a projetos reais de locais que
+            ainda não têm acesso à água potável e saneamento no Brasil.
+        </p>
 
-<!-- CAMPANHAS -->
-<section class="campanhas">
-    <h2>Campanhas Ativas</h2>
 
-    <div class="cards">
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1684184478156-d3f55c53cc52?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-             alt="um gazebo no meio de um campo gramado">
-            <h3>Poço de Água em Comunidade Rural</h3>
-            <p>Construção de rede de esgoto e tratamento para comunidade de 200 famílias.</p>
-            <button class="btn">Doar</button>
-        </div>
+        <div class="hero-botoes">
+            <button class="btn-secundario"
+                    onclick="window.location.href='pages/criar-projeto.html'">
+                Solicitar apoio
+            </button>
+            <button class="btn-primario"
+                    onclick="window.location.href='pages/doacao.html'">
+                Apoiar uma causa
+            </button>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1674578745937-c73f81bdda07?q=80&w=965&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-            alt="um grande grupo de reservatórios de água dispostos lado a lado">
-            <h3>Sistema de Tratamento de Água</h3>
-            <p>Instalação de filtros e sistema de purificação para escola local.</p>
-            <button class="btn">Doar</button>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1607113208903-6855b60ad046?q=80&w=891&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-            alt="Menina com blusa listrada rosa e branca em pé sobre piso de concreto marrom durante o dia.">
-            <h3>Poço de Água em Comunidade Rural</h3>
-            <p>Construção de poço artesiano para fornecer água potável a 500 famílias.</p>
-            <button class="btn">Doar</button>
         </div>
     </div>
 </section>
 
-<!-- IMPORTÂNCIA -->
-<section class="info">
-    <h2>Por que doar?</h2>
+<!--BARRA DE ESTATÍSTICAS-->
+<div class="stats-bar">
+    <div class="stat-item">
+        <strong>33M</strong>
+        <span>Sem água potável</span>
+    </div>
+    <div class="stat-item">
+        <strong>90M</strong>
+        <span>Sem saneamento</span>
+    </div>
+    <div class="stat-item">
+        <strong>50%</strong>
+        <span>Sem esgoto tratado</span>
+    </div>
+    <div class="stat-item">
+        <strong>124</strong>
+        <span>Projetos apoiados</span>
+    </div>
+</div>
 
-    <div class="info-box">
-        <div>
-            <h3>Missão</h3>
-            <p>Levar água para todos e saneamento para todo brasil.</p>
+<!--CAMPANHAS ATIVAS-->
+<section class="secao secao-escura">
+    <div class="text-center">
+        <h2 class="secao-titulo">Campanhas Ativas</h2>
+        <p class="secao-subtitulo">Escolha um projeto e faça a diferença agora mesmo</p>
+    </div>
+
+    <div class="grade-cards">
+
+        <div class="card-campanha">
+            <img src="https://images.unsplash.com/photo-1684184478156-d3f55c53cc52?q=80&w=870&auto=format&fit=crop"
+                 alt="Estrutura de captação de água em área rural">
+            <div class="card-corpo">
+                <h3>Poço em Comunidade Rural</h3>
+                <p>Construção de rede de esgoto e tratamento para 200 famílias no interior do Piauí.</p>
+                <div class="progresso">
+                    <div class="progresso-barra" style="width: 65%"></div>
+                </div>
+                <div class="progresso-meta">
+                    <span>R$ 13.000 arrecadados</span>
+                    <span>65%</span>
+                </div>
+                <button class="btn-primario btn-sm"
+                        onclick="window.location.href='pages/doacao.html'">
+                    Apoiar projeto
+                </button>
+            </div>
         </div>
 
-        <div>
-            <h3>Transparência</h3>
-            <p>Uso claro das doações</p>
+        <div class="card-campanha">
+            <img src="https://images.unsplash.com/photo-1674578745937-c73f81bdda07?q=80&w=965&auto=format&fit=crop"
+                 alt="Reservatórios de tratamento de água lado a lado">
+            <div class="card-corpo">
+                <h3>Sistema de Tratamento</h3>
+                <p>Filtros e purificação para escola municipal com 350 alunos sem água limpa.</p>
+                <div class="progresso">
+                    <div class="progresso-barra" style="width: 40%"></div>
+                </div>
+                <div class="progresso-meta">
+                    <span>R$ 6.000 arrecadados</span>
+                    <span>40%</span>
+                </div>
+                <button class="btn-primario btn-sm"
+                        onclick="window.location.href='pages/doacao.html'">
+                    Apoiar projeto
+                </button>
+            </div>
         </div>
 
-        <div>
-            <h3>Impacto</h3>
-            <p>Muda vidas</p>
+        <div class="card-campanha">
+            <img src="https://images.unsplash.com/photo-1607113208903-6855b60ad046?q=80&w=891&auto=format&fit=crop"
+                 alt="Criança sorrindo com acesso a água limpa">
+            <div class="card-corpo">
+                <h3>Poço Artesiano Familiar</h3>
+                <p>Água potável para 500 famílias no sertão nordestino com poço artesiano.</p>
+                <div class="progresso">
+                    <div class="progresso-barra" style="width: 80%"></div>
+                </div>
+                <div class="progresso-meta">
+                    <span>R$ 24.000 arrecadados</span>
+                    <span>80%</span>
+                </div>
+                <button class="btn-primario btn-sm"
+                        onclick="window.location.href='pages/doacao.html'">
+                    Apoiar projeto
+                </button>
+            </div>
         </div>
+
     </div>
 </section>
 
-<!-- FOOTER -->
+
+<section class="secao secao-clara text-center">
+    <div class="banner-cta">
+        <h2>Sua comunidade precisa de ajuda? </h2>
+        <p>
+            Crie um projeto em minutos, descreva a necessidade
+            e receba doações de pessoas de todo o Brasil.
+        </p>
+        <button class="btn-secundario"
+                onclick="window.location.href='pages/criar-projeto.html'">
+            Criar meu projeto de doação
+        </button>
+    </div>
+</section>
+
+<!--FOOTER -->
 <footer>
-    <p>© 2026 Caminho da Agua</p>
+    <div class="footer-logo">
+        <img class="footer-logo-img" src="img/noNameLogo.png" alt="Logo Caminho da Água">
+        <span class="logo-texto">CAMINHO DA ÁGUA</span>
+    </div>
+    <div class="footer-links">
+        <a href="pages/sobre.html">Sobre</a>
+        <a href="pages/contato.html">Contato</a>
+        <a href="pages/login.html">Login</a>
+    </div>
+    <p class="footer-copy">© 2026 Caminho da Água — Todos os direitos reservados</p>
 </footer>
+
+<!-- CONTROLLER: funções compartilhadas (menu mobile, toast) -->
+<script src="js/main.js"></script>
 
 </body>
 </html>

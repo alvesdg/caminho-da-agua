@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💧 Criar Projeto — Caminho da Água</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/forms.css">
+</head>
+<body>
+
+<header>
+    <a class="logo" href="../index.html">
+        <img class="logo-img" src="../img/noNameLogo.png" alt="Logo Caminho da Água">
+        <span class="logo-texto">CAMINHO DA ÁGUA</span>
+    </a>
+
+    <!-- Botão hambúrguer (só aparece em mobile via CSS) -->
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+    </button>
+
+    <nav>
+        <a href="sobre.html">Sobre</a>
+        <a href="login.html">Login</a>
+        <a href="contato.html">Contato</a>
+        <button class="btn-nav" onclick="window.location.href='criar-projeto.html'">
+            Solicitar apoio
+        </button>
+    </nav>
+</header>
+
+<!-- VIEW: Formulário para criar projeto de doação -->
+<main class="form-page">
+    <div class="form-box form-box--wide">
+
+        <h2>Criar Projeto de Doação</h2>
+        <p class="form-subtitulo">
+            Descreva a necessidade da sua comunidade e receba apoio de todo o Brasil
+        </p>
+
+        <!-- Sugestões rápidas de tipo de projeto -->
+        <p class="exemplos-label">Exemplos de projetos</p>
+        <div class="exemplos">
+            <span class="exemplo-tag" onclick="sugerirTitulo('Poço de água para comunidade rural')">
+                🪣 Poço rural
+            </span>
+            <span class="exemplo-tag" onclick="sugerirTitulo('Sistema de saneamento básico')">
+                🏗️ Saneamento
+            </span>
+            <span class="exemplo-tag" onclick="sugerirTitulo('Filtro de água para escola')">
+                🏫 Escola
+            </span>
+            <span class="exemplo-tag" onclick="sugerirTitulo('Cisternas para famílias do sertão')">
+                💧 Cisternas
+            </span>
+        </div>
+
+        <!-- Título do projeto -->
+        <div class="campo">
+            <label for="proj-titulo">Título do Projeto</label>
+            <input type="text" id="proj-titulo"
+                   placeholder="Ex: Poço de água para comunidade do Sítio Esperança">
+            <span class="msg-erro" id="erro-proj-titulo">Campo obrigatório</span>
+        </div>
+
+        <!-- Descrição -->
+        <div class="campo">
+            <label for="proj-descricao">Descrição da Necessidade</label>
+            <textarea id="proj-descricao"
+                      placeholder="Conte a história da sua comunidade. Por que precisam de ajuda? Quantas pessoas serão beneficiadas?"></textarea>
+            <span class="msg-erro" id="erro-proj-descricao">Campo obrigatório</span>
+        </div>
+
+        <!-- Meta financeira e prazo lado a lado -->
+        <div class="campos-duplos">
+            <div class="campo">
+                <label for="proj-meta">Meta (R$)</label>
+                <input type="number" id="proj-meta" placeholder="Ex: 20000" min="100">
+                <span class="msg-erro" id="erro-proj-meta">Valor mínimo: R$ 100</span>
+            </div>
+            <div class="campo">
+                <label for="proj-prazo">Prazo</label>
+                <input type="date" id="proj-prazo">
+                <span class="msg-erro" id="erro-proj-prazo">Campo obrigatório</span>
+            </div>
+        </div>
+
+        <!-- Localização -->
+        <div class="campos-duplos">
+            <div class="campo">
+                <label for="proj-estado">Estado</label>
+                <input type="text" id="proj-estado" placeholder="Ex: PI" maxlength="2"
+                       oninput="this.value = this.value.toUpperCase()">
+            </div>
+            <div class="campo">
+                <label for="proj-cidade">Cidade / Comunidade</label>
+                <input type="text" id="proj-cidade" placeholder="Nome da cidade">
+            </div>
+        </div>
+
+        <!-- Upload de foto (visual apenas — sem backend) -->
+        <div class="campo">
+            <label>Foto do Projeto (opcional)</label>
+            <div class="upload-area" onclick="document.getElementById('proj-foto').click()">
+                <div class="upload-icone">📷</div>
+                <p>Clique para escolher uma foto</p>
+                <p class="upload-hint">JPG ou PNG até 5MB</p>
+                <input type="file" id="proj-foto" accept="image/*" style="display:none">
+            </div>
+        </div>
+
+        <!-- Contato do criador -->
+        <div class="campo">
+            <label for="proj-contato">Seu E-mail (para contato)</label>
+            <div class="input-wrap">
+                <span class="icone-input">📧</span>
+                <input type="email" id="proj-contato" placeholder="seuemail@exemplo.com">
+            </div>
+            <span class="msg-erro" id="erro-proj-contato">E-mail inválido</span>
+        </div>
+
+        <hr class="separador">
+
+        <button class="btn-primario btn-primario--full" onclick="validarProjeto()">
+            Publicar Projeto
+        </button>
+
+        <p class="form-nota">
+            Ao publicar, você concorda com nossos termos de uso.<br>
+            Projetos são revisados antes de ficarem visíveis.
+        </p>
+
+    </div>
+</main>
+
+<footer>
+    <div class="footer-logo">
+        <img class="footer-logo-img" src="../img/noNameLogo.png" alt="Logo Caminho da Água">
+        <span class="logo-texto">CAMINHO DA ÁGUA</span>
+    </div>
+    <div class="footer-links">
+        <a href="sobre.html">Sobre</a>
+        <a href="contato.html">Contato</a>
+    </div>
+    <p class="footer-copy">© 2026 Caminho da Água</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="../js/main.js"></script>
+<script src="../js/forms.js"></script>
+
+</body>
+</html>

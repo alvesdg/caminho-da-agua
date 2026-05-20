@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre — Caminho da Água</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+
+<header>
+    <a class="logo" href="../index.html">
+        <img class="logo-img" src="../img/noNameLogo.png" alt="Logo Caminho da Água">
+        <span class="logo-texto">CAMINHO DA ÁGUA</span>
+    </a>
+
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+    </button>
+
+    <nav id="nav-menu">
+        <a href="sobre.html">Sobre</a>
+        <a href="login.html">Login</a>
+        <a href="contato.html">Contato</a>
+        <button class="btn-nav" onclick="window.location.href='criar-projeto.html'">
+             Solicitar apoio
+        </button>
+    </nav>
+</header>
+
+<main>
+    <section class="sobre-hero">
+        <h1>
+            Sobre o<br>
+            <span class="hero-marca">Caminho da Água</span>
+        </h1>
+        <p>Conheça a nossa história e o que nos move.</p>
+    </section>
+
+    <section class="secao secao-escura">
+        <div class="text-center" style="margin-bottom: 64px;">
+            <h2 class="secao-titulo">Quem Somos</h2>
+            <p class="secao-subtitulo">Conheça a origem e o propósito do nosso projeto</p>
+        </div>
+
+        <div class="z-secao">
+            <div class="z-bloco">
+                <div class="z-imagem" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop');">
+                    <div class="z-imagem-overlay">
+                        <span class="z-imagem-label">Tecnologia & Propósito</span>
+                    </div>
+                </div>
+                <div class="z-texto">
+                    <span class="z-tag">Nossa Origem</span>
+                    <h3>Projeto Interdisciplinar</h3>
+                    <p>
+                        O projeto <strong>Caminho da Água</strong> foi criado durante o curso de Desenvolvimento de Software Multiplataforma. Esta atividade aplica a teoria na prática para resolver problemas reais, sendo norteada pelas <strong>ODS 6 (Água Potável e Saneamento)</strong> e <strong>ODS 10 (Redução das Desigualdades)</strong> da ONU.
+                    </p>
+                </div>
+            </div>
+
+            <div class="z-bloco invertido">
+                <div class="z-imagem" style="background-image: url('https://images.unsplash.com/photo-1657527886222-8893edae16dc?q=80&w=800&auto=format&fit=crop');">
+                    <div class="z-imagem-overlay">
+                        <span class="z-imagem-label">Água Potável no Brasil</span>
+                    </div>
+                </div>
+                <div class="z-texto">
+                    <span class="z-tag">O Problema</span>
+                    <h3>A falta de saneamento básico</h3>
+                    <p>
+                        A nossa ideia central é <strong>desenvolver um website para ajudar pessoas que sofrem com a falta de saneamento básico e água potável no Brasil</strong>. É difícil imaginar, mas muitas famílias vivem sem esse direito essencial.
+                    </p>
+                </div>
+            </div>
+
+            <div class="z-bloco">
+                <div class="z-imagem" style="background-image: url('https://images.unsplash.com/photo-1713019704587-9ca6cd08be75?q=80&w=800&auto=format&fit=crop');">
+                    <div class="z-imagem-overlay">
+                        <span class="z-imagem-label">Comunidade & Impacto</span>
+                    </div>
+                </div>
+                <div class="z-texto">
+                    <span class="z-tag">Público-Alvo</span>
+                    <h3>Quem pode ajudar?</h3>
+                    <p>
+                        A plataforma foi construída para <strong>pessoas ou empresas que queiram doar para locais de extrema necessidade</strong>. Toda ajuda une forças para levar saúde e água limpa a quem mais precisa.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="secao secao-escura text-center">
+        <h2 class="secao-titulo">Nossa Equipe</h2>
+        <p class="secao-subtitulo">Os criadores por trás do Caminho da Água</p>
+
+        <div class="equipe-grid">
+            <div class="membro-card">
+                <div class="membro-avatar">👨🏽‍💻</div>
+                <p class="membro-nome">Eduardo Alves</p>
+                <p class="membro-cargo">Front-end</p>
+            </div>
+            <div class="membro-card">
+                <div class="membro-avatar">👩🏻‍💻</div>
+                <p class="membro-nome">Ygor Gabriel</p>
+                <p class="membro-cargo">Desenvolvedor</p>
+            </div>
+            <div class="membro-card">
+                <div class="membro-avatar">🧑🏿‍💻</div>
+                <p class="membro-nome">Gabriel Alves</p>
+                <p class="membro-cargo">Desenvolvedor</p>
+            </div>
+            <div class="membro-card">
+                <div class="membro-avatar">👩🏽‍🎨</div>
+                <p class="membro-nome">Igor Torrichelli</p>
+                <p class="membro-cargo">Design e UI</p>
+            </div>
+            <div class="membro-card">
+                <div class="membro-avatar">👨🏻‍💼</div>
+                <p class="membro-nome">Thiago Tumang</p>
+                <p class="membro-cargo">Projetos</p>
+            </div>
+            <div class="membro-card">
+                <div class="membro-avatar">🧑🏽‍🔧</div>
+                <p class="membro-nome">José Veríssimo</p>
+                <p class="membro-cargo">Pesquisa</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-logo">
+        <img class="footer-logo-img" src="../img/noNameLogo.png" alt="Logo Caminho da Água">
+        <span class="logo-texto">CAMINHO DA ÁGUA</span>
+    </div>
+    <div class="footer-links">
+        <a href="sobre.html">Sobre</a>
+        <a href="contato.html">Contato</a>
+    </div>
+    <p class="footer-copy">© 2026 Caminho da Água</p>
+</footer>
+
+<script src="../js/main.js"></script>
+
+</body>
+</html>

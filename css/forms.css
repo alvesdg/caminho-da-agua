@@ -1,0 +1,572 @@
+/* FORMS.CSS
+   Estilos de todos os formulários do projeto:
+   login, cadastro e página de doação. */
+
+/*  WRAPPER — centraliza qualquer form-page  */
+.form-page {
+    min-height: calc(100vh - 64px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 20px;
+    background: linear-gradient(160deg, var(--fundo-page) 60%, rgba(67, 112, 209, 0.10) 100%);
+}
+
+/*     CAIXA DO FORMULÁRIO */
+.form-box {
+    background: var(--fundo-card);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-lg);
+    padding: 40px 36px;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: var(--sombra);
+}
+
+.form-box h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--azul-suave);
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.form-subtitulo {
+    font-size: 13px;
+    color: var(--texto-muted);
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+/* Avatar de perfil (login) */
+.avatar {
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid var(--azul-claro);
+    object-fit: cover;
+    margin: 0 auto 20px;
+}
+
+.login-logo-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.login-logo-wrap img {
+    width: 86px;
+    height: 86px;
+    object-fit: contain;
+    mix-blend-mode: lighten;
+    filter: brightness(1.1);
+}
+
+/*  
+   CAMPOS DE INPUT
+     */
+.campo {
+    margin-bottom: 16px;
+}
+
+.campo label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--texto-muted);
+    margin-bottom: 6px;
+}
+
+/* Wrapper para colocar ícone dentro do input */
+.input-wrap {
+    position: relative;
+}
+
+.input-wrap .icone-input {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    /* Não bloqueia o clique */
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid rgba(67, 112, 209, 0.45);
+    border-radius: var(--raio-sm);
+    background: var(--fundo-input);
+    color: var(--texto);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+/* Input com ícone → empurra texto para direita */
+.input-wrap input {
+    padding-left: 40px;
+}
+
+.campo input:focus,
+.campo select:focus {
+    border-color: var(--azul-claro);
+    box-shadow: 0 0 0 3px rgba(0, 171, 250, 0.12);
+}
+
+/* Campo com erro */
+.campo input.invalido {
+    border-color: var(--cor-erro);
+}
+
+/* Mensagem de erro (aparece via JS) */
+.msg-erro {
+    display: none;
+    font-size: 11px;
+    color: var(--cor-erro);
+    margin-top: 4px;
+}
+
+.msg-erro.visivel {
+    display: block;
+}
+
+/* Grade 2 colunas (nome + sobrenome, etc.) */
+.campos-duplos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+/* Select personalizado (seta custom) */
+.campo select {
+    appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2380C4FF' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+}
+
+/* Linha separadora */
+.separador {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 20px 0;
+}
+
+/*     DIVISOR SOCIAL ("ou entre com") */
+.divisor-social {
+    text-align: center;
+    color: var(--texto-fraco);
+    font-size: 12px;
+    margin: 18px 0;
+    position: relative;
+}
+
+.divisor-social::before,
+.divisor-social::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 35%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.10);
+}
+
+.divisor-social::before {
+    left: 0;
+}
+
+.divisor-social::after {
+    right: 0;
+}
+
+/* Botões de login social */
+.social-botoes {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.btn-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    background: var(--fundo-input);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: var(--raio-md);
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 11px;
+    color: var(--texto);
+    width: 78px;
+    transition: background 0.25s, border-color 0.25s, transform 0.2s;
+}
+
+.btn-social img {
+    width: 26px;
+    height: 26px;
+}
+
+.btn-social:hover {
+    background: rgba(67, 112, 209, 0.25);
+    border-color: var(--azul-escuro);
+    transform: scale(1.05);
+}
+
+/*     PÁGINA DE DOAÇÃO    */
+.doacao-page {
+    display: flex;
+    gap: 28px;
+    padding: 40px;
+    min-height: calc(100vh - 64px);
+    background: var(--fundo-page);
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Coluna esquerda: lista de campanhas */
+.doacao-lista {
+    width: 280px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.doacao-lista h3 {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--texto-muted);
+    margin-bottom: 4px;
+}
+
+/* Card de campanha na lista lateral */
+.doacao-card-item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background: var(--fundo-card);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-md);
+    padding: 12px;
+    cursor: pointer;
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.doacao-card-item:hover,
+.doacao-card-item.ativo {
+    border-color: var(--azul-claro);
+    box-shadow: 0 0 0 2px rgba(0, 171, 250, 0.15);
+}
+
+.doacao-card-item img {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--raio-sm);
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.doacao-card-item h4 {
+    font-size: 13px;
+    color: var(--azul-suave);
+    margin-bottom: 3px;
+}
+
+.doacao-card-item p {
+    font-size: 11px;
+    color: var(--texto-fraco);
+}
+
+/* Campo de valor personalizado */
+.valor-custom {
+    background: var(--fundo-card);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-md);
+    padding: 14px;
+}
+
+.valor-custom label {
+    display: block;
+    font-size: 12px;
+    color: var(--texto-muted);
+    margin-bottom: 8px;
+}
+
+.valor-custom input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid rgba(67, 112, 209, 0.40);
+    border-radius: var(--raio-sm);
+    background: var(--fundo-input);
+    color: var(--texto);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.25s;
+}
+
+.valor-custom input:focus {
+    border-color: var(--azul-claro);
+}
+
+/* Coluna direita: formulário de pagamento */
+.doacao-form {
+    background: var(--fundo-card);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-lg);
+    padding: 36px 32px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: var(--sombra);
+}
+
+.doacao-form h2 {
+    font-size: 19px;
+    color: var(--azul-suave);
+    margin-bottom: 22px;
+}
+
+/* Abas de método de pagamento */
+.metodos {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.metodo-btn {
+    flex: 1;
+    min-width: 90px;
+    padding: 9px 10px;
+    border: 1px solid rgba(67, 112, 209, 0.45);
+    background: var(--fundo-input);
+    color: var(--texto-muted);
+    border-radius: var(--raio-sm);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: all 0.25s;
+}
+
+.metodo-btn.ativo,
+.metodo-btn:hover {
+    background: var(--azul-claro);
+    border-color: var(--azul-claro);
+    color: #fff;
+}
+
+/* Caixa de valor total */
+.valor-total {
+    background: var(--fundo-input);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-md);
+    padding: 14px;
+    text-align: center;
+    margin: 18px 0;
+}
+
+.valor-total small {
+    display: block;
+    font-size: 12px;
+    color: var(--texto-muted);
+    margin-bottom: 4px;
+}
+
+.valor-total strong {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--azul-claro);
+}
+
+/* QR Code do Pix */
+.pix-qr {
+    text-align: center;
+    padding: 12px 0;
+}
+
+.pix-qr img {
+    width: 170px;
+    height: 170px;
+    border: 2px solid var(--borda);
+    border-radius: var(--raio-md);
+    margin: 0 auto 12px;
+}
+
+.pix-codigo {
+    background: var(--fundo-input);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-sm);
+    padding: 10px 12px;
+    font-size: 11px;
+    color: var(--texto-muted);
+    word-break: break-all;
+    text-align: left;
+    margin-bottom: 14px;
+}
+
+/*  
+   TOAST (mensagem de sucesso)
+     */
+.toast {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    background: var(--cor-sucesso);
+    color: #fff;
+    padding: 14px 22px;
+    border-radius: var(--raio-md);
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.30);
+    display: none;
+    z-index: 999;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(60px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ════════════════════════════════════════
+   CRIAR PROJETO
+   ════════════════════════════════════════ */
+
+/* Largura estendida para o form-box desta página */
+.form-box--wide {
+    max-width: 560px;
+}
+
+/* Sugestões rápidas de tipo de projeto */
+.exemplos {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.exemplos-label {
+    font-size: 12px;
+    color: var(--texto-muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    font-weight: 600;
+}
+
+.exemplo-tag {
+    background: rgba(0, 171, 250, 0.10);
+    border: 1px solid var(--borda);
+    color: var(--azul-suave);
+    padding: 6px 14px;
+    border-radius: 99px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+.exemplo-tag:hover {
+    background: rgba(0, 171, 250, 0.20);
+    border-color: var(--azul-claro);
+}
+
+/* Textarea para descrição */
+.campo textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid rgba(67, 112, 209, 0.45);
+    border-radius: var(--raio-sm);
+    background: var(--fundo-input);
+    color: var(--texto);
+    font-size: 14px;
+    outline: none;
+    resize: vertical;
+    min-height: 110px;
+    font-family: inherit;
+    transition: border-color 0.25s;
+}
+.campo textarea:focus {
+    border-color: var(--azul-claro);
+    box-shadow: 0 0 0 3px rgba(0, 171, 250, 0.12);
+}
+
+/* Área de upload de imagem */
+.upload-area {
+    border: 2px dashed var(--borda);
+    border-radius: var(--raio-md);
+    padding: 28px;
+    text-align: center;
+    color: var(--texto-muted);
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.25s, background 0.25s;
+}
+.upload-area:hover {
+    border-color: var(--azul-claro);
+    background: rgba(0, 171, 250, 0.05);
+}
+.upload-area .upload-icone {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+.upload-area .upload-hint {
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* Nota de rodapé do formulário */
+.form-nota {
+    text-align: center;
+    font-size: 12px;
+    color: var(--texto-fraco);
+    margin-top: 12px;
+}
+
+/* Botão primário em largura total */
+.btn-primario--full {
+    width: 100%;
+    justify-content: center;
+}
+
+/*  
+   RESPONSIVO
+     */
+@media (max-width: 768px) {
+    .form-box {
+        padding: 28px 20px;
+    }
+
+    .campos-duplos {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .doacao-page {
+        padding: 24px 16px;
+    }
+
+    .doacao-lista {
+        width: 100%;
+    }
+}

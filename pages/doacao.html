@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💧 Fazer Doação — Caminho da Água</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/forms.css">
+</head>
+<body>
+
+<header>
+    <a class="logo" href="../index.html">
+        <img class="logo-img" src="../img/noNameLogo.png" alt="Logo Caminho da Água">
+        <span class="logo-texto">CAMINHO DA ÁGUA</span>
+    </a>
+
+    <!-- Botão hambúrguer (só aparece em mobile via CSS) -->
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+    </button>
+
+    <nav>
+
+        <a href="sobre.html">Sobre</a>
+        <a href="login.html">Login</a>
+        <a href="contato.html">Contato</a>
+
+
+        <button class="btn-nav"
+                onclick="window.location.href='criar-projeto.html'">
+             Solicitar apoio
+        </button>
+    </nav>
+</header>
+<!-- VIEW: Página de doação -->
+<div class="doacao-page">
+
+    <!-- Coluna esquerda: lista de campanhas -->
+    <div class="doacao-lista">
+           <h3>Escolha uma campanha</h3>
+
+        <div class="doacao-card-item ativo"
+             onclick="selecionarCampanha(this, 50)">
+            <img src="https://images.unsplash.com/photo-1684184478156-d3f55c53cc52?q=80&w=100&auto=format&fit=crop"
+                 alt="Campo rural">
+            <div>
+                <h4>Poço em Comunidade Rural</h4>
+                <p>200 famílias · R$ 20.000 meta</p>
+            </div>
+        </div>
+
+        <div class="doacao-card-item"
+             onclick="selecionarCampanha(this, 75)">
+            <img src="https://images.unsplash.com/photo-1674578745937-c73f81bdda07?q=80&w=100&auto=format&fit=crop"
+                 alt="Reservatórios">
+            <div>
+                <h4>Sistema de Tratamento</h4>
+                <p>Escola local · R$ 15.000 meta</p>
+            </div>
+        </div>
+
+        <div class="doacao-card-item"
+             onclick="selecionarCampanha(this, 100)">
+            <img src="https://images.unsplash.com/photo-1607113208903-6855b60ad046?q=80&w=100&auto=format&fit=crop"
+                 alt="Criança">
+            <div>
+                <h4>Poço Artesiano Familiar</h4>
+                <p>500 famílias · R$ 30.000 meta</p>
+            </div>
+        </div>
+
+        <!-- Valor personalizado -->
+        <div class="valor-custom">
+            <label>Valor personalizado (R$)</label>
+            <input type="number" id="valor-personalizado" placeholder="Ex: 123,45"
+                   oninput="atualizarValor(this.value)">
+        </div>
+    </div>
+
+    <!-- Coluna direita: formulário de pagamento -->
+    <div class="doacao-form">
+        <h2>Finalizar Doação</h2>
+
+        <!-- Abas de método -->
+        <div class="metodos">
+            <button class="metodo-btn ativo" onclick="mostrarMetodo('debito', this)">
+                💳 Débito
+            </button>
+            <button class="metodo-btn" onclick="mostrarMetodo('credito', this)">
+                💳 Crédito
+            </button>
+            <button class="metodo-btn" onclick="mostrarMetodo('pix', this)">
+                📱 Pix
+            </button>
+        </div>
+
+        <!-- Painel Débito -->
+        <div id="painel-debito">
+            <div class="campo">
+                <label>Número do Cartão</label>
+                <input type="text" placeholder="0000 0000 0000 0000"
+                       maxlength="19" oninput="formatarCartao(this)">
+            </div>
+            <div class="campo">
+                <label>Nome do Titular</label>
+                <input type="text" placeholder="Como está no cartão">
+            </div>
+            <div class="campos-duplos">
+                <div class="campo">
+                    <label>CVV</label>
+                    <input type="text" placeholder="123" maxlength="3">
+                </div>
+                <div class="campo">
+                    <label>Vencimento</label>
+                    <input type="text" placeholder="MM/AA" maxlength="5">
+                </div>
+            </div>
+            <div class="campo">
+                <label>CPF/CNPJ</label>
+                <input type="text" placeholder="000.000.000-00">
+            </div>
+            <div class="valor-total">
+                <small>Valor total da doação</small>
+                <strong id="valor-debito">R$ 50,00</strong>
+            </div>
+            <button class="btn-primario" style="width:100%; justify-content:center;"
+                    onclick="finalizarDoacao()">
+                ✅ Finalizar Pagamento
+            </button>
+        </div>
+
+        <!-- Painel Crédito -->
+        <div id="painel-credito" style="display:none;">
+            <div class="campo">
+                <label>Número do Cartão</label>
+                <input type="text" placeholder="0000 0000 0000 0000"
+                       maxlength="19" oninput="formatarCartao(this)">
+            </div>
+            <div class="campo">
+                <label>Nome do Titular</label>
+                <input type="text" placeholder="Como está no cartão">
+            </div>
+            <div class="campos-duplos">
+                <div class="campo">
+                    <label>CVV</label>
+                    <input type="text" placeholder="123" maxlength="3">
+                </div>
+                <div class="campo">
+                    <label>Vencimento</label>
+                    <input type="text" placeholder="MM/AA" maxlength="5">
+                </div>
+            </div>
+            <div class="campo">
+                <label>CPF/CNPJ</label>
+                <input type="text" placeholder="000.000.000-00">
+            </div>
+            <div class="valor-total">
+                <small>Valor total da doação</small>
+                <strong id="valor-credito">R$ 50,00</strong>
+            </div>
+            <button class="btn-primario" style="width:100%; justify-content:center;"
+                    onclick="finalizarDoacao()">
+                ✅ Finalizar Pagamento
+            </button>
+        </div>
+
+        <!-- Painel Pix -->
+        <div id="painel-pix" style="display:none;">
+            <div class="pix-qr">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=170x170&data=caminhodaagua@gmail.com"
+                     alt="QR Code Pix">
+                <p style="font-size:13px; color:var(--texto-muted); margin-bottom:10px;">
+                    Escaneie o QR Code com o app do seu banco
+                </p>
+                <div class="pix-codigo">caminhodaagua@gmail.com</div>
+                <button class="btn-secundario btn-sm" style="width:100%; justify-content:center;"
+                        onclick="copiarPix()">
+                    📋 Copiar código Pix
+                </button>
+            </div>
+            <div class="valor-total">
+                <small>Valor total da doação</small>
+                <strong id="valor-pix">R$ 50,00</strong>
+            </div>
+            <button class="btn-primario" style="width:100%; justify-content:center;"
+                    onclick="finalizarDoacao()">
+                ✅ Confirmar Pagamento
+            </button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-logo">
+        <img class="footer-logo-img" src="../img/noNameLogo.png" alt="Logo Caminho da Água">
+        <span class="logo-texto">CAMINHO DA ÁGUA</span>
+    </div>
+    <div class="footer-links">
+        <a href="sobre.html">Sobre</a>
+        <a href="contato.html">Contato</a>
+    </div>
+    <p class="footer-copy">© 2026 Caminho da Água</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="../js/main.js"></script>
+<script src="../js/forms.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💧 Contato — Caminho da Água</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/pages.css">
+
+
+</head>
+<body>
+<header>
+    <a class="logo" href="../index.html">
+        <img class="logo-img" src="../img/noNameLogo.png" alt="Logo Caminho da Água">
+        <span class="logo-texto">CAMINHO DA ÁGUA</span>
+    </a>
+
+    <!-- Botão hambúrguer (só aparece em mobile via CSS) -->
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+    </button>
+
+    <nav>
+
+        <a href="sobre.html">Sobre</a>
+        <a href="login.html">Login</a>
+        <a href="contato.html">Contato</a>
+
+
+        <button class="btn-nav"
+                onclick="window.location.href='criar-projeto.html'">
+             Solicitar apoio
+        </button>
+    </nav>
+</header>
+<section class="secao secao-escura text-center">
+    <h1 class="secao-titulo">Nosso Contato</h1>
+    <p class="secao-subtitulo">Fale com a gente, estamos prontos para ajudar</p>
+
+    <div class="contato-wrapper">
+        <div class="contato-info">
+            <div class="contato-linha">
+                <span class="contato-icon">📱</span>
+                <p>+55 16 999999999</p>
+            </div>
+            <div class="contato-linha">
+                <span class="contato-icon">✉️</span>
+                <p>caminhodaagua@gmail.com</p>
+            </div>
+            <div class="contato-linha">
+                <span class="contato-icon">📸</span>
+                <p>@caminhodaagua</p>
+            </div>
+            
+        </div>
+        <img class="contato-img"
+             src="../img/pathWater.png"
+             alt="Pessoa recebendo água limpa">
+
+        <button class="btn-primario" style="margin-top:8px;">
+                Enviar mensagem
+        </button>
+    </div>
+    
+</section>
+
+<footer>
+    <div class="footer-logo">
+        <img class="footer-logo-img" src="../img/noNameLogo.png" alt="Logo Caminho da Água">
+        <span class="logo-texto">CAMINHO DA ÁGUA</span>
+    </div>
+    <div class="footer-links">
+        <a href="sobre.html">Sobre</a>
+        <a href="login.html">Login</a>
+    </div>
+    <p class="footer-copy">© 2026 Caminho da Água</p>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

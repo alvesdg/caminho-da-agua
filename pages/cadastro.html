@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💧 Cadastro — Caminho da Água</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/forms.css">
+</head>
+<body>
+
+<header>
+    <a class="logo" href="../index.html">
+        <img class="logo-img" src="../img/noNameLogo.png" alt="Logo Caminho da Água">
+        <span class="logo-texto">CAMINHO DA ÁGUA</span>
+    </a>
+
+    <!-- Botão hambúrguer (só aparece em mobile via CSS) -->
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+    </button>
+
+    <nav>
+
+        <a href="sobre.html">Sobre</a>
+        <a href="login.html">Login</a>
+        <a href="contato.html">Contato</a>
+
+
+        <button class="btn-nav"
+                onclick="window.location.href='criar-projeto.html'">
+             Solicitar apoio
+        </button>
+    </nav>
+</header>
+
+<!-- VIEW: Formulário de Cadastro -->
+<main class="form-page">
+    <div class="form-box" style="max-width: 520px;">
+
+        <h2>Criar Conta</h2>
+        <p class="form-subtitulo">Junte-se a milhares de doadores e criadores de projetos</p>
+
+        <!-- Seletor de tipo de conta -->
+        <div class="campo">
+            <label for="tipo-select">Tipo de Conta</label>
+            <select id="tipo-select" onchange="trocarTipoCadastro()">
+                <option value="pf">Pessoa Física (CPF)</option>
+                <option value="pj">Pessoa Jurídica (CNPJ)</option>
+            </select>
+        </div>
+
+        <!-- ══════════════════════════════
+             FORMULÁRIO PESSOA FÍSICA
+             ══════════════════════════ -->
+        <div id="form-pf">
+
+            <div class="campos-duplos">
+                <div class="campo">
+                    <label for="pf-nome">Nome</label>
+                    <input type="text" id="pf-nome" placeholder="Seu nome">
+                    <span class="msg-erro" id="erro-pf-nome">Campo obrigatório</span>
+                </div>
+                <div class="campo">
+                    <label for="pf-sobrenome">Sobrenome</label>
+                    <input type="text" id="pf-sobrenome" placeholder="Seu sobrenome">
+                    <span class="msg-erro" id="erro-pf-sobrenome">Campo obrigatório</span>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label for="pf-cpf">CPF</label>
+                <input type="text" id="pf-cpf" placeholder="000.000.000-00"
+                       maxlength="14" oninput="formatarCPF(this)">
+                <span class="msg-erro" id="erro-pf-cpf">CPF inválido</span>
+            </div>
+
+            <div class="campos-duplos">
+                <div class="campo">
+                    <label for="pf-celular">Celular</label>
+                    <input type="text" id="pf-celular" placeholder="(00) 00000-0000"
+                           maxlength="15" oninput="formatarTelefone(this)">
+                    <span class="msg-erro" id="erro-pf-celular">Campo obrigatório</span>
+                </div>
+                <div class="campo">
+                    <label for="pf-nascimento">Nascimento</label>
+                    <input type="date" id="pf-nascimento">
+                    <span class="msg-erro" id="erro-pf-nascimento">Campo obrigatório</span>
+                </div>
+            </div>
+
+            <div class="campos-duplos">
+                <div class="campo">
+                    <label for="pf-estado">Estado</label>
+                    <input type="text" id="pf-estado" placeholder="SP" maxlength="2"
+                           oninput="this.value = this.value.toUpperCase()">
+                    <span class="msg-erro" id="erro-pf-estado">Campo obrigatório</span>
+                </div>
+                <div class="campo">
+                    <label for="pf-cidade">Cidade</label>
+                    <input type="text" id="pf-cidade" placeholder="Sua cidade">
+                    <span class="msg-erro" id="erro-pf-cidade">Campo obrigatório</span>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label for="pf-email">E-mail</label>
+                <input type="email" id="pf-email" placeholder="seuemail@exemplo.com">
+                <span class="msg-erro" id="erro-pf-email">E-mail inválido</span>
+            </div>
+
+            <div class="campo">
+                <label for="pf-senha">Senha</label>
+                <input type="password" id="pf-senha" placeholder="Mínimo 6 caracteres">
+                <span class="msg-erro" id="erro-pf-senha">Mínimo 6 caracteres</span>
+            </div>
+
+        </div>
+
+        <!-- ══════════════════════════════
+             FORMULÁRIO PESSOA JURÍDICA
+             ══════════════════════════ -->
+        <div id="form-pj" style="display:none;">
+
+            <div class="campo">
+                <label for="pj-nome">Nome da Empresa</label>
+                <input type="text" id="pj-nome" placeholder="Razão Social">
+                <span class="msg-erro" id="erro-pj-nome">Campo obrigatório</span>
+            </div>
+
+            <div class="campo">
+                <label for="pj-cnpj">CNPJ</label>
+                <input type="text" id="pj-cnpj" placeholder="00.000.000/0000-00"
+                       maxlength="18" oninput="formatarCNPJ(this)">
+                <span class="msg-erro" id="erro-pj-cnpj">CNPJ inválido</span>
+            </div>
+
+            <div class="campo">
+                <label for="pj-responsavel">Responsável</label>
+                <input type="text" id="pj-responsavel" placeholder="Nome do responsável">
+                <span class="msg-erro" id="erro-pj-responsavel">Campo obrigatório</span>
+            </div>
+
+            <div class="campos-duplos">
+                <div class="campo">
+                    <label for="pj-estado">Estado</label>
+                    <input type="text" id="pj-estado" placeholder="SP" maxlength="2"
+                           oninput="this.value = this.value.toUpperCase()">
+                    <span class="msg-erro" id="erro-pj-estado">Campo obrigatório</span>
+                </div>
+                <div class="campo">
+                    <label for="pj-cidade">Cidade</label>
+                    <input type="text" id="pj-cidade" placeholder="Cidade da empresa">
+                    <span class="msg-erro" id="erro-pj-cidade">Campo obrigatório</span>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label for="pj-telefone">Telefone da Empresa</label>
+                <input type="text" id="pj-telefone" placeholder="(00) 0000-0000"
+                       maxlength="14" oninput="formatarTelefone(this)">
+                <span class="msg-erro" id="erro-pj-telefone">Campo obrigatório</span>
+            </div>
+
+            <div class="campo">
+                <label for="pj-email">E-mail</label>
+                <input type="email" id="pj-email" placeholder="empresa@exemplo.com">
+                <span class="msg-erro" id="erro-pj-email">E-mail inválido</span>
+            </div>
+
+            <div class="campo">
+                <label for="pj-senha">Senha</label>
+                <input type="password" id="pj-senha" placeholder="Mínimo 6 caracteres">
+                <span class="msg-erro" id="erro-pj-senha">Mínimo 6 caracteres</span>
+            </div>
+
+        </div>
+
+        <hr class="separador">
+
+        <button class="btn-primario" style="width:100%; justify-content:center;"
+                onclick="validarCadastro()">
+            Finalizar Cadastro
+        </button>
+
+        <p style="text-align:center; font-size:13px; color:var(--texto-muted); margin-top:16px;">
+            Já tem conta?
+            <a href="login.html" style="color:var(--azul-claro); font-weight:600;">Fazer login</a>
+        </p>
+
+    </div>
+</main>
+
+<footer>
+    <div class="footer-logo">
+        <img class="footer-logo-img" src="../img/noNameLogo.png" alt="Logo Caminho da Água">
+        <span class="logo-texto">CAMINHO DA ÁGUA</span>
+    </div>
+    <div class="footer-links">
+        <a href="sobre.html">Sobre</a>
+        <a href="contato.html">Contato</a>
+    </div>
+    <p class="footer-copy">© 2026 Caminho da Água</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="../js/main.js"></script>
+<script src="../js/forms.js"></script>
+
+</body>
+</html>
