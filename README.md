@@ -1,6 +1,7 @@
 # 💧 Caminho da Água — Estrutura do Projeto
 
-│
+```text
+.
 ├── index.html              ← Página inicial (home)
 │
 ├── pages/                  ← VIEW: páginas do site
@@ -9,7 +10,7 @@
 │   ├── sobre.html          ← Visão do produto
 │   ├── contato.html        ← Contato
 │   ├── doacao.html         ← Fazer doação (débito/crédito/pix)
-│   └── criar-projeto.html  ← Criar pedido de doação 
+│   └── criar-projeto.html  ← Criar pedido de doação
 │
 ├── css/                    ← VIEW: estilos separados por função
 │   ├── base.css            ← Variáveis de cor, reset, botões globais
@@ -17,15 +18,13 @@
 │   ├── pages.css           ← Seções de conteúdo (hero, cards, etc.)
 │   └── forms.css           ← Formulários (login, cadastro, doação)
 │
-└── js/                     ← CONTROLLER: lógica em JavaScript
+├── js/                     ← CONTROLLER: lógica em JavaScript
 │   ├── main.js             ← Funções globais (menu mobile, toast)
 │   └── forms.js            ← Validação, máscaras e lógica de forms
-└── img/
-│   ├── noNameLogo.png     
-│   └── pathWater.png      
 │
-```
-
+└── img/
+    ├── noNameLogo.png
+    └── pathWater.png
 ## Como os CSS são importados
 
 Cada página importa só o que precisa:
