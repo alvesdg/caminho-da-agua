@@ -81,7 +81,7 @@ function validarLogin() {
     if (!emailValido(email)) { definirErro('login-email', true,  'E-mail inválido'); ok = false; }
     else                       definirErro('login-email', false);
 
-    if (!senha || senha.length < 6) { definirErro('login-senha', true,  'Mínimo 6 caracteres'); ok = false; }
+    if (!senha || senha.length < 9) { definirErro('login-senha', true,  'Mínimo 8 caracteres'); ok = false; }
     else                              definirErro('login-senha', false);
 
     if (ok) mostrarToast('✅ Login realizado!', () => { window.location.href = 'index.html'; });
@@ -115,7 +115,7 @@ function validarCadastro() {
             { id: 'pf-estado',     msg: 'Campo obrigatório',   teste: v => v !== '' },
             { id: 'pf-cidade',     msg: 'Campo obrigatório',   teste: v => v !== '' },
             { id: 'pf-email',      msg: 'E-mail inválido',     teste: v => emailValido(v) },
-            { id: 'pf-senha',      msg: 'Mínimo 6 caracteres', teste: v => v.length >= 6 },
+            { id: 'pf-senha',      msg: 'Mínimo 8 caracteres', teste: v => v.length >= 8 },
         ];
         campos.forEach(c => {
             const el = document.getElementById(c.id);
@@ -134,7 +134,7 @@ function validarCadastro() {
             { id: 'pj-cidade',      msg: 'Campo obrigatório',   teste: v => v !== '' },
             { id: 'pj-telefone',    msg: 'Campo obrigatório',   teste: v => v !== '' },
             { id: 'pj-email',       msg: 'E-mail inválido',     teste: v => emailValido(v) },
-            { id: 'pj-senha',       msg: 'Mínimo 6 caracteres', teste: v => v.length >= 6 },
+            { id: 'pj-senha',       msg: 'Mínimo 8 caracteres', teste: v => v.length >= 8 },
         ];
         campos.forEach(c => {
             const el = document.getElementById(c.id);
@@ -196,14 +196,14 @@ function mostrarMetodo(metodo, btn) {
 
 /* Copia chave Pix para a área de transferência */
 function copiarPix() {
-    navigator.clipboard.writeText('caminhodaagua@gmail.com')
+    navigator.clipboard.writeText('https://www.vakinha.com.br/quero-doar')
         .then(() => mostrarToast('📋 Código Pix copiado!'))
-        .catch(() => alert('Copie manualmente: caminhodaagua@gmail.com'));
+        .catch(() => alert('Copie manualmente: https://www.vakinha.com.br/quero-doar'));
 }
 
 /* Finaliza o pagamento */
 function finalizarDoacao() {
-    mostrarToast('💙 Doação realizada! Obrigado!', () => { window.location.href = 'index.html'; });
+    mostrarToast('💙 Doação realizada! Obrigado!', () => { window.location.href = '../index.html'; });
 }
 
 /* ════════════════════════════════════════
@@ -236,5 +236,34 @@ function validarProjeto() {
     if (ok) {
         mostrarToast('✅ Projeto enviado! Em breve será revisado.',
             () => { window.location.href = '../index.html'; });
+    }
+}
+
+/* ════════════════════════════════════════
+   CONTATO
+   ════════════════════════════════════════ */
+function enviarContato() {
+    const campos = [
+        { id: 'nome',     msg: 'Por favor, informe seu nome.',       teste: v => v.trim().length >= 2 },
+        { id: 'email',    msg: 'Informe um e-mail válido.',          teste: v => emailValido(v) },
+        { id: 'assunto',  msg: 'Por favor, informe o assunto.',      teste: v => v.trim().length >= 2 },
+        { id: 'mensagem', msg: 'Por favor, escreva sua mensagem.',   teste: v => v.trim().length >= 10 },
+    ];
+
+    let ok = true;
+    campos.forEach(({ id, msg, teste }) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const valido = teste(el.value);
+        definirErro(id, !valido, msg);
+        if (!valido) ok = false;
+    });
+
+    if (ok) {
+        campos.forEach(({ id }) => {
+            const el = document.getElementById(id);
+            if (el) el.value = '';
+        });
+        mostrarToast('✅ Mensagem enviada com sucesso!');
     }
 }

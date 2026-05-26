@@ -8,7 +8,7 @@
    INDEX — Hero (banner principal)
    ──────────────────────────────────────── */
 
-.hero {
+   .hero {
     position: relative;
     min-height: 520px;
     display: flex;
@@ -299,10 +299,42 @@
 .contato-icon { font-size: 28px; flex-shrink: 0; }
 .contato-linha p { font-size: 16px; }
 .contato-img {
-    width: 300px; ;
+    width: 300px;
+}
 
+/* Informações de contato no rodapé da seção de contato */
+.contato-info-rodape {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 32px 24px 8px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    max-width: 600px;
+    margin: 0 auto;
+}
 
+.contato-linha-centro {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0;
+}
 
+.contato-linha-centro p {
+    font-size: 14px;
+    color: var(--texto-muted);
+}
+
+.contato-linha-centro .contato-icon {
+    font-size: 20px;
+}
+
+/* form-box dentro de .secao mantém alinhamento à esquerda */
+.secao .form-box {
+    text-align: left;
+    background: var(--fundo-card);
+    border: 1px solid var(--borda);
 }
 
 /*   SOBRE — Z-Pattern (Quem Somos) */
@@ -438,10 +470,7 @@
     margin-bottom: 4px;
 }
 
-.membro-cargo {
-    font-size: 13px;
-    color: var(--texto-muted);
-}
+
 
 /* Responsivo para Z-pattern e Equipe */
 @media (max-width: 768px) {
@@ -465,4 +494,15 @@
     .sobre-grid     { grid-template-columns: 1fr; }
     .contato-wrapper { flex-direction: column; padding: 32px 24px; }
     .contato-img    { width: 100%; height: 200px; }
+
+    .contato-info-rodape {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .secao .form-box {
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
