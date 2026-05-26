@@ -106,7 +106,7 @@ CaminhoDaAgua/
 |  Azul Claro | `#00ABFA` | Botão principal, destaques |
 |  Azul Suave | `#80C4FF` | Títulos e logo |
 |  Azul Escuro | `#4370D1` | Bordas e botão do menu |
-|  Fundo Geral | `#1e1f27` | Background da página |
+|  Fundo Geral | `#2b2C33` | Background da página |
 |  Fundo Card | `#313550` | Cards, cabeçalho e rodapé |
 
 ---
