@@ -84,7 +84,7 @@ function validarLogin() {
     if (!senha || senha.length < 9) { definirErro('login-senha', true,  'Mínimo 8 caracteres'); ok = false; }
     else                              definirErro('login-senha', false);
 
-    if (ok) mostrarToast('✅ Login realizado!', () => { window.location.href = 'index.html'; });
+    if (ok) mostrarToast('✅ Login realizado!', () => { window.location.href = '../index.html'; });
 }
 
 /* ════════════════════════════════════════
